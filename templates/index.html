@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Portfolio Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">CryptoTrack</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        <li><a href="{{ url_for('glossary') }}">Glossary</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Welcome to CryptoTrack</h1>
+      <p>Your personal cryptocurrency portfolio tracker. Track, manage, and analyze your investments in real-time.</p>
+      <a href="{{ url_for('portfolio') }}" class="btn">Start Tracking</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CryptoTrack. All rights reserved.</p>
+  </footer>
+</body>
+</html>

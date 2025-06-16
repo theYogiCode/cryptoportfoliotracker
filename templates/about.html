@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - CryptoTrack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">CryptoTrack</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        <li><a href="{{ url_for('glossary') }}">Glossary</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main style="padding: 40px 20px; max-width: 900px; margin: auto;">
+    <section class="hero">
+      <h1>About CryptoTrack</h1>
+      <p>Learn more about the purpose, vision, and development of CryptoTrack.</p>
+    </section>
+
+    <section>
+      <h2>Our Vision</h2>
+      <p>CryptoTrack was born out of the need for a simple, intuitive, and powerful tool to help crypto investors keep track of their digital assets. With the increasing number of cryptocurrencies available and the volatile nature of the market, it's more important than ever to stay informed and in control.</p>
+
+      <h2>What We Offer</h2>
+      <ul>
+        <li>Real-time price tracking for multiple cryptocurrencies</li>
+        <li>Easy-to-use interface to manage your portfolio</li>
+        <li>Visual insights and performance monitoring</li>
+        <li>Educational content for crypto newcomers</li>
+      </ul>
+
+      <h2>Technologies Used</h2>
+      <p>This project is developed using HTML5, CSS3, and JavaScript. It uses the CoinGecko API to fetch real-time crypto prices, ensuring up-to-date information. The responsive design ensures usability across devices.</p>
+
+      <h2>Meet the Developer</h2>
+      <p>This project is part of a practical application effort by a passionate web developer transitioning into the tech industry, combining self-learning with academic knowledge. The goal is to demonstrate web development skills while creating a meaningful and useful application.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CryptoTrack. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

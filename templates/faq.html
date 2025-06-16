@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - CryptoTrack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">CryptoTrack</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        <li><a href="{{ url_for('glossary') }}">Glossary</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main style="padding: 40px 20px; max-width: 900px; margin: auto;">
+    <section class="hero">
+      <h1>Frequently Asked Questions</h1>
+      <p>Find answers to some of the most common questions about CryptoTrack.</p>
+    </section>
+
+    <section>
+      <h2>What is CryptoTrack?</h2>
+      <p>CryptoTrack is a cryptocurrency portfolio tracker that allows users to monitor their holdings in real time using price data from CoinGecko.</p>
+
+      <h2>Is CryptoTrack free to use?</h2>
+      <p>Yes, CryptoTrack is completely free. It is built as an educational project and hobby tool for crypto enthusiasts.</p>
+
+      <h2>How does CryptoTrack get its price data?</h2>
+      <p>We use the CoinGecko API to fetch real-time prices for various cryptocurrencies in USD.</p>
+
+      <h2>Can I track multiple coins?</h2>
+      <p>Yes! You can add multiple coins with their respective amounts, and the tool will calculate the total value of your holdings.</p>
+
+      <h2>Is my data stored anywhere?</h2>
+      <p>No. All data is handled in your browser’s memory for privacy. Once you refresh the page, the data is cleared. A future version may include local storage.</p>
+
+      <h2>Can I use this on mobile?</h2>
+      <p>Absolutely! The design is responsive and works well across mobile, tablet, and desktop devices.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CryptoTrack. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

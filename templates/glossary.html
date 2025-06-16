@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossary - CryptoTrack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">CryptoTrack</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        <li><a href="{{ url_for('glossary') }}">Glossary</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main style="padding: 40px 20px; max-width: 900px; margin: auto;">
+    <section class="hero">
+      <h1>Crypto Glossary</h1>
+      <p>Understand key terms in the world of cryptocurrency.</p>
+    </section>
+
+    <section>
+      <dl>
+        <dt><strong>Blockchain</strong></dt>
+        <dd>A decentralized, distributed ledger that records transactions across many computers.</dd>
+
+        <dt><strong>Cryptocurrency</strong></dt>
+        <dd>A digital or virtual currency secured by cryptography, operating independently of a central bank.</dd>
+
+        <dt><strong>Bitcoin (BTC)</strong></dt>
+        <dd>The first and most well-known cryptocurrency, introduced in 2009 by Satoshi Nakamoto.</dd>
+
+        <dt><strong>Altcoin</strong></dt>
+        <dd>Any cryptocurrency other than Bitcoin. Examples include Ethereum, Litecoin, and Ripple.</dd>
+
+        <dt><strong>Wallet</strong></dt>
+        <dd>A digital tool that allows users to store, receive, and send cryptocurrencies securely.</dd>
+
+        <dt><strong>Private Key</strong></dt>
+        <dd>A secret code that allows access to your crypto assets. It must be kept safe and private.</dd>
+
+        <dt><strong>Exchange</strong></dt>
+        <dd>A platform where cryptocurrencies can be bought, sold, or traded for other digital assets or fiat currency.</dd>
+
+        <dt><strong>Market Cap</strong></dt>
+        <dd>The total value of a cryptocurrency, calculated by multiplying the price per coin by the circulating supply.</dd>
+
+        <dt><strong>DeFi</strong></dt>
+        <dd>Short for decentralized finance; it refers to financial services built on blockchain technology.</dd>
+
+        <dt><strong>HODL</strong></dt>
+        <dd>A slang term in the crypto community meaning to hold a cryptocurrency long-term instead of selling it.</dd>
+      </dl>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CryptoTrack. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
