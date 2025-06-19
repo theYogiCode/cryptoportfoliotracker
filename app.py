@@ -6,7 +6,8 @@ import MySQLdb.cursors
 import bcrypt
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = '53c17c7268f52bd3876d788cd93d8adac3b0c3650ea91523e986bd6aa3a15369'
+
 
 # MySQL configuration
 app.config.update(
