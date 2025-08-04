@@ -103,11 +103,33 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-@app.route('/portfolio')
+
+@app.route('/portfolio', methods=['GET', 'POST'])
 @login_required
 def portfolio():
-    return render_template('portfolio.html')
+    user_id = session['user_id']
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 
+    if request.method == 'POST':
+        data = request.get_json()
+        coin_name = data.get('coin_name')
+        amount = data.get('amount')
+        buy_price = data.get('buy_price')
+
+        if coin_name and amount is not None and buy_price is not None:
+            cursor.execute(
+                "INSERT INTO portfolio (user_id, coin_name, amount, buy_price) VALUES (%s, %s, %s, %s)",
+                (user_id, coin_name, amount, buy_price)
+            )
+            mysql.connection.commit()
+            return jsonify({'message': 'Coin added successfully'}), 200
+        else:
+            return jsonify({'error': 'All fields are required'}), 400
+
+    # Fetch user's coins
+    cursor.execute("SELECT * FROM portfolio WHERE user_id = %s", (user_id,))
+    coins = cursor.fetchall()
+    return render_template('portfolio.html', coins=coins)
 
 
 @app.route('/logout')

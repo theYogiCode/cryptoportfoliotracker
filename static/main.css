@@ -24,7 +24,7 @@ input, button {
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #f9f9f9;
+  background-color: grey;
   color: #333;
 }
 
@@ -170,4 +170,65 @@ dl dd {
 }
 #coinList{
   color: wheat;
+}
+
+#login-form ,#signup-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto', sans-serif;
+}
+
+/*#login-form h2, #signup-form h2 {
+    text-align: center;
+    color: #00ffcc;
+    margin-bottom: 20px;
+}*/
+
+#login-form input[type="email"],
+#login-form input[type="password"],
+#signup-form input[type="text"],
+#signup-form input[type="email"],
+#signup-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+#login-form button, #signup-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0066ff;
+    color: #1e1e1e;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#login-form button:hover, #signup-form button:hover {
+    background-color: #004ecb;
+}
+
+#login-form a, #signup-form a {
+    display: block;                /* Makes it appear on a new line */
+    margin-top: 15px;              /* Adds space above the link */
+    text-align: center;            /* Centers the link */
+    color: aquamarine;             /* Keeps your chosen color */
+    font-weight: bold;             /* Keeps your chosen font weight */
+    text-decoration: none;         /* Removes underline by default */
+    transition: color 0.3s ease;   /* Smooth color transition on hover */
+}
+
+#login-form a:hover, #signup-form a:hover  {
+    color: #00ccaa;                /* Slightly darker color on hover */
+    text-decoration: underline;    /* Adds underline on hover for clarity */
 }

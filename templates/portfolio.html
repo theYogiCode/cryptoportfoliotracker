@@ -55,51 +55,78 @@
     const totalValueEl = document.getElementById('totalValue');
     let portfolio = [];
 
+    // Load portfolio from server (data from Flask)
+    const initialCoins = {{coins|tojson}};
+
     async function fetchPrice(symbol) {
-      try {
-        const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${symbol}&vs_currencies=usd`);
-        const data = await res.json();
-        return data[symbol]?.usd || 0;
-      } catch (error) {
-        console.error('Error fetching price:', error);
-        return 0;
-      }
+        try {
+            const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${symbol}&vs_currencies=usd`);
+            const data = await res.json();
+            return data[symbol]?.usd || 0;
+        } catch (error) {
+            console.error('Error fetching price:', error);
+            return 0;
+        }
     }
 
     async function updatePortfolio() {
-      coinList.innerHTML = '';
-      let total = 0;
+        coinList.innerHTML = '';
+        let total = 0;
 
-      for (const coin of portfolio) {
-        const price = await fetchPrice(coin.symbol);
-        const value = price * coin.amount;
-        total += value;
+        for (const coin of portfolio) {
+            const price = await fetchPrice(coin.coin_name);
+            const value = price * coin.amount;
+            total += value;
 
-        const coinEl = document.createElement('div');
-        coinEl.className = 'coin';
-        coinEl.style = 'display: flex; justify-content: space-between; padding: 10px; background-color: #1e1e1e; margin-bottom: 10px; border-radius: 5px;';
-        coinEl.innerHTML = `
-          <div><strong>${coin.symbol.toUpperCase()}</strong> - ${coin.amount}</div>
-          <div>$${value.toFixed(2)}</div>
-        `;
-        coinList.appendChild(coinEl);
-      }
+            const coinEl = document.createElement('div');
+            coinEl.className = 'coin';
+            coinEl.style = 'display: flex; justify-content: space-between; padding: 10px; background-color: #1e1e1e; margin-bottom: 10px; border-radius: 5px;';
+            coinEl.innerHTML = `
+              <div><strong>${coin.coin_name.toUpperCase()}</strong> - ${coin.amount}</div>
+              <div>$${value.toFixed(2)}</div>
+            `;
+            coinList.appendChild(coinEl);
+        }
 
-      totalValueEl.textContent = `Total Portfolio Value: $${total.toFixed(2)}`;
+        totalValueEl.textContent = `Total Portfolio Value: $${total.toFixed(2)}`;
     }
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const symbol = document.getElementById('coinSymbol').value.trim().toLowerCase();
-      const amount = parseFloat(document.getElementById('coinAmount').value);
+    // Populate initial portfolio
+    portfolio = initialCoins;
+    updatePortfolio();
 
-      if (symbol && amount > 0) {
-        portfolio.push({ symbol, amount });
-        await updatePortfolio();
-        form.reset();
-      }
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const symbol = document.getElementById('coinSymbol').value.trim().toLowerCase();
+        const amount = parseFloat(document.getElementById('coinAmount').value);
+
+        if (symbol && amount > 0) {
+            const res = await fetch('/portfolio', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    coin_name: symbol,
+                    amount: amount,
+                    buy_price: 0  // Optional: Add a field if needed
+                })
+            });
+
+            const result = await res.json();
+            console.log('Server response:', result);
+
+            if (res.ok) {
+                portfolio.push({ coin_name: symbol, amount: amount });
+                await updatePortfolio();
+                form.reset();
+            } else {
+                alert(result.error || 'Failed to add coin');
+            }
+        }
     });
-  </script>
+</script>
+
 </body>
 
 </html>
