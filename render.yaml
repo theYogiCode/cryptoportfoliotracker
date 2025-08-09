@@ -8,7 +8,11 @@ services:
         libsdl2-dev \
         libsdl2-image-dev \
         libsdl2-mixer-dev \
-        libsdl2-ttf-dev
+        libsdl2-ttf-dev \
+        libportmidi-dev \
+        libfreetype6-dev \
+        libjpeg-dev \
+        zlib1g-dev
       pip install --upgrade pip setuptools wheel
       pip install -r requirements.txt
     startCommand: python app.py
